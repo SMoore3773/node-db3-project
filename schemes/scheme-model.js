@@ -21,8 +21,11 @@ function add(scheme){
     return db('schemes').insert(scheme);
 }
 
-function addStep(step, id){
+function addStep(newStep, id){
     return db('steps')
+    .join('schemes','schemes.id','steps.schem_id')
+    .insert(newStep)
+    .where({scheme_id:id})
 }
 
 function update(changes, id){
