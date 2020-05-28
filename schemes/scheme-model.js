@@ -22,11 +22,13 @@ function add(scheme){
 }
 
 function addStep(step, id){
-
+    return db('steps')
 }
 
 function update(changes, id){
-
+    return db('schemes')
+            .where({id})
+            .update(changes);
 }
 
 function remove(id){
